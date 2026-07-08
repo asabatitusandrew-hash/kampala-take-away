@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampala Take Away | East African Restaurant in Germany</title>
+  <meta name="description" content="Kampala Take Away serves authentic Ugandan and East African food, premium soft drinks, beer, wine and cocktails in Germany.">
+  <meta name="theme-color" content="#07110d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --ink: #fffaf0;
+      --muted: rgba(255, 250, 240, .72);
+      --night: #07110d;
+      --glass: rgba(255, 255, 255, .105);
+      --glass-strong: rgba(255, 255, 255, .18);
+      --stroke: rgba(255, 255, 255, .22);
+      --gold: #d9b45f;
+      --gold-light: #ffe1a1;
+      --emerald: #20b87a;
+      --danger: #ff6f61;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .38);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Poppins, system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 6%, rgba(32, 184, 122, .24), transparent 28rem),
+        radial-gradient(circle at 86% 0%, rgba(217, 180, 95, .2), transparent 24rem),
+        linear-gradient(135deg, #050806 0%, #0b1411 45%, #11100c 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, #000, transparent 78%);
+      z-index: -1;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    .section { padding: 86px 0; }
+    .eyebrow { color: var(--gold-light); font-size: .78rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; margin: 0; line-height: 1.02; letter-spacing: 0; }
+    h1 { font-size: clamp(3rem, 8vw, 6.8rem); max-width: 900px; }
+    h2 { font-size: clamp(2.2rem, 5vw, 4.4rem); }
+    h3 { font-size: clamp(1.35rem, 2.5vw, 1.9rem); }
+    p { color: var(--muted); line-height: 1.72; }
+
+    .glass {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.17), rgba(255,255,255,.065));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.24);
+      backdrop-filter: blur(22px) saturate(155%);
+      -webkit-backdrop-filter: blur(22px) saturate(155%);
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 1px 1px auto;
+      height: 46%;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,.18), transparent);
+      pointer-events: none;
+    }
+
+    .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 30;
+      width: min(1160px, calc(100% - 24px));
+      margin: 12px auto 0;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 900; }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      color: #07110d;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 10px 30px rgba(217, 180, 95, .34);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a, .icon-btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 10px 13px;
+      color: rgba(255,255,255,.88);
+      background: transparent;
+      cursor: pointer;
+      transition: transform .25s ease, background .25s ease, border .25s ease;
+    }
+
+    .nav-links a:hover, .icon-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.11);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .cart-button {
+      color: #06100c;
+      font-weight: 900;
+      background: linear-gradient(135deg, rgba(217,180,95,.96), rgba(32,184,122,.84));
+    }
+
+    .mobile-toggle { display: none; }
+    .hero { min-height: calc(100vh - 76px); display: grid; align-items: end; padding: 70px 0 34px; }
+    .hero-panel {
+      min-height: 78vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(24px, 5vw, 56px);
+      border-radius: 34px;
+      overflow: hidden;
+      background: #08100c;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(3,5,4,.88), rgba(3,5,4,.38) 54%, rgba(3,5,4,.72)),
+        linear-gradient(0deg, rgba(3,5,4,.86), transparent 58%);
+    }
+
+    .hero-panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); }
+    .hero-copy { position: relative; z-index: 2; max-width: 940px; }
+    .hero-copy p { max-width: 650px; margin: 22px 0 28px; font-size: clamp(1rem, 2vw, 1.28rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      color: #07110d;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      box-shadow: 0 15px 34px rgba(217, 180, 95, .22);
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 20px 48px rgba(217, 180, 95, .3); }
+    .btn.secondary { color: #fff; background: rgba(255,255,255,.12); border: 1px solid var(--stroke); box-shadow: none; backdrop-filter: blur(18px); }
+    .btn.small { padding: 10px 14px; font-size: .88rem; }
+
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .section-head p { max-width: 560px; margin: 0; }
+    .about-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch; }
+    .panel { padding: clamp(22px, 3vw, 34px); }
+    .portrait { width: 100%; height: 100%; min-height: 450px; object-fit: cover; border-radius: var(--radius); }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+    .mini { padding: 18px; border: 1px solid rgba(255,255,255,.12); border-radius: 18px; background: rgba(255,255,255,.08); }
+    .mini i { color: var(--gold-light); font-size: 1.3rem; }
+    .mini strong { display: block; margin: 10px 0 5px; }
+    .mini span { color: var(--muted); font-size: .9rem; }
+
+    .tabs { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 22px; }
+    .tab { white-space: nowrap; color: #fff; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); padding: 10px 15px; border-radius: 999px; cursor: pointer; }
+    .tab.active { background: linear-gradient(135deg, rgba(217,180,95,.96), rgba(32,184,122,.86)); color: #06100c; font-weight: 900; }
+    .menu-grid, .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+      transition: transform .28s ease, border-color .28s ease, background .28s ease;
+    }
+
+    .card:hover { transform: translateY(-6px); border-color: rgba(217,180,95,.55); background: rgba(255,255,255,.12); }
+    .card-media { aspect-ratio: 4 / 3; overflow: hidden; background: #111; }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .card:hover img { transform: scale(1.07); }
+    .card-body { padding: 18px; }
+    .meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .price { color: var(--gold-light); font-weight: 900; }
+    .card p { margin: 8px 0 14px; font-size: .93rem; }
+
+    .drinks-showcase { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; margin-top: 20px; }
+    .drink-hero { min-height: 410px; position: relative; overflow: hidden; border-radius: 30px; }
+    .drink-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .drink-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.68), transparent 58%); }
+    .drink-hero .overlay { position: absolute; inset: auto 18px 18px; z-index: 2; padding: 20px; }
+    .drink-list { display: grid; gap: 12px; }
+    .drink-strip { display: grid; grid-template-columns: 88px 1fr auto; gap: 14px; align-items: center; padding: 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: rgba(255,255,255,.08); }
+    .drink-strip img { width: 88px; height: 72px; object-fit: cover; border-radius: 16px; }
+    .drink-strip small { color: var(--muted); }
+
+    .order-layout { display: grid; grid-template-columns: 1.45fr .75fr; gap: 18px; align-items: start; }
+    .order-form { display: grid; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: grid; gap: 7px; color: rgba(255,255,255,.86); font-weight: 800; font-size: .88rem; }
+    input, select, textarea { width: 100%; color: #fff; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 12px 13px; outline: none; }
+    textarea { min-height: 96px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(217,180,95,.14); }
+    .cart { position: sticky; top: 100px; padding: 20px; }
+    .cart-line { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .qty button, .remove { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.1); color: #fff; cursor: pointer; }
+    .remove { color: var(--danger); }
+    .total { display: flex; justify-content: space-between; margin: 18px 0; font-size: 1.25rem; font-weight: 900; }
+    .empty { color: var(--muted); }
+
+    .gallery-grid { grid-auto-flow: dense; }
+    .gallery-item { position: relative; min-height: 230px; cursor: zoom-in; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .gallery-item span { position: absolute; left: 14px; bottom: 14px; padding: 8px 12px; border-radius: 999px; background: rgba(0,0,0,.45); backdrop-filter: blur(12px); font-weight: 900; }
+
+    .contact-list { display: grid; gap: 14px; }
+    .contact-item { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 18px; background: rgba(255,255,255,.08); }
+    .contact-item i { color: var(--gold-light); margin-top: 4px; }
+    .map iframe { width: 100%; height: 320px; border: 0; border-radius: 20px; filter: saturate(.8) contrast(1.05); }
+    footer { padding: 40px 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 24px; }
+    .footer-links { display: grid; gap: 8px; color: var(--muted); }
+    .lightbox { position: fixed; inset: 0; z-index: 50; display: none; place-items: center; padding: 22px; background: rgba(0,0,0,.82); }
+    .lightbox.active { display: grid; }
+    .lightbox img { max-height: 84vh; border-radius: 24px; box-shadow: var(--shadow); }
+    .toast { position: fixed; right: 18px; bottom: 18px; z-index: 60; max-width: 340px; padding: 14px 16px; border: 1px solid var(--stroke); border-radius: 18px; background: rgba(14,22,18,.78); backdrop-filter: blur(20px); transform: translateY(150%); transition: transform .3s ease; }
+    .toast.show { transform: translateY(0); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 930px) {
+      .mobile-toggle { display: inline-flex; }
+      .nav-links { position: fixed; top: 82px; left: 16px; right: 16px; display: none; flex-direction: column; align-items: stretch; padding: 14px; border: 1px solid var(--stroke); border-radius: 24px; background: rgba(8,16,12,.88); backdrop-filter: blur(24px); }
+      .nav-links.open { display: flex; }
+      .about-grid, .contact-grid, .drinks-showcase, .order-layout, .footer-grid { grid-template-columns: 1fr; }
+      .menu-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .cart { position: static; }
+    }
+
+    @media (max-width: 620px) {
+      .section { padding: 62px 0; }
+      .hero-panel { min-height: 74vh; border-radius: 24px; }
+      .section-head { display: grid; }
+      .feature-grid, .menu-grid, .gallery-grid, .form-row { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: span 1; }
+      .drink-strip { grid-template-columns: 70px 1fr; }
+      .drink-strip .btn { grid-column: 1 / -1; }
+      .drink-strip img { width: 70px; height: 64px; }
+      .actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav glass" aria-label="Main navigation">
+    <a class="brand" href="#home" aria-label="Kampala Take Away home"><span class="brand-mark"><i class="fa-solid fa-utensils"></i></span><span>Kampala Take Away</span></a>
+    <button class="icon-btn mobile-toggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a><a href="#menu">Menu</a><a href="#order">Order Online</a><a href="#about">About Us</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      <button class="icon-btn cart-button" id="openCart"><i class="fa-solid fa-bag-shopping"></i> <span id="cartCount">0</span></button>
+    </div>
+  </nav>
+
+  <main id="home" class="hero container">
+    <section class="hero-panel reveal">
+      <img src="https://source.unsplash.com/1800x1200/?east-african-food,ugandan-food,restaurant-platter" alt="A generous East African inspired feast served on a restaurant table" fetchpriority="high">
+      <div class="hero-copy">
+        <span class="eyebrow">Authentic Ugandan takeaway in Germany</span>
+        <h1>The Taste of East Africa in Germany</h1>
+        <p>Authentic Ugandan and East African cuisine prepared fresh every day, paired with premium soft drinks, wines and handcrafted cocktails.</p>
+        <div class="actions"><a class="btn" href="#menu"><i class="fa-solid fa-book-open"></i> View Menu</a><a class="btn secondary" href="#order"><i class="fa-solid fa-bag-shopping"></i> Order Now</a></div>
+      </div>
+    </section>
+  </main>
+
+  <section id="about" class="section">
+    <div class="container about-grid">
+      <div class="panel glass reveal">
+        <span class="eyebrow">Our story</span>
+        <h2>Warm spice, fresh food, polished hospitality.</h2>
+        <p>Kampala Take Away brings authentic East African flavours to Germany. We prepare traditional dishes using fresh ingredients, homemade recipes and genuine African spices.</p>
+        <p>Whether customers want a quick lunch, takeaway or catering, they experience the true taste of East Africa with a restaurant experience that feels modern, clean and memorable.</p>
+        <div class="feature-grid">
+          <div class="mini"><i class="fa-solid fa-pepper-hot"></i><strong>Real spice</strong><span>Ugandan and East African flavour profiles.</span></div>
+          <div class="mini"><i class="fa-solid fa-seedling"></i><strong>Fresh daily</strong><span>Prepared for takeaway, lunch and events.</span></div>
+          <div class="mini"><i class="fa-solid fa-champagne-glasses"></i><strong>Full drinks</strong><span>Soft drinks, beer, wine and cocktails.</span></div>
+        </div>
+      </div>
+      <img class="portrait reveal" src="https://source.unsplash.com/1000x1200/?ugandan-stew,east-african-food,restaurant" alt="Ugandan stew and East African food served with a premium restaurant presentation" loading="lazy">
+    </div>
+  </section>
+
+  <section id="menu" class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Menu</span><h2>Food and drinks</h2></div><p>Browse East African favourites and the upgraded drinks menu. Every item can be added to the order cart.</p></div>
+      <div class="tabs reveal" id="tabs" aria-label="Menu categories"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+      <div class="drinks-showcase reveal" aria-label="Premium drinks showcase">
+        <article class="drink-hero glass">
+          <img src="https://source.unsplash.com/1200x900/?tropical-juice,cocktail,restaurant-drinks" alt="Colorful tropical juices served cold with citrus and ice" loading="lazy">
+          <div class="overlay glass"><span class="eyebrow">Fresh and chilled</span><h3>Tropical juices, cocktails and premium pours.</h3><p>High-quality drink photography is built into the menu cards and ordering experience.</p></div>
+        </article>
+        <div class="drink-list" id="drinkList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Order online</span><h2>Your order</h2></div><p>Add food and drinks, choose collection or delivery, select a time and send the order request. The flow is ready to connect to Stripe, PayPal or another gateway later.</p></div>
+      <div class="order-layout">
+        <form class="panel glass order-form reveal" id="orderForm">
+          <div class="form-row"><label>Name<input required name="name" autocomplete="name"></label><label>Phone<input required name="phone" type="tel" autocomplete="tel"></label></div>
+          <div class="form-row"><label>Email<input required name="email" type="email" autocomplete="email"></label><label>Service<select name="service"><option>Collection</option><option>Delivery</option></select></label></div>
+          <div class="form-row"><label>Preferred time<input required name="time" type="datetime-local"></label><label>Address<input name="address" placeholder="Required for delivery"></label></div>
+          <label>Order notes<textarea name="notes" placeholder="Allergies, spice level, delivery notes"></textarea></label>
+          <button class="btn" type="submit"><i class="fa-brands fa-whatsapp"></i> Submit Order Request</button>
+        </form>
+        <aside class="cart glass reveal" id="cartPanel" aria-label="Shopping cart"><h3>Cart</h3><div id="cartItems" class="empty">Your cart is empty.</div><div class="total"><span>Total</span><span id="cartTotal">&euro;0.00</span></div><button class="btn secondary" id="clearCart" type="button"><i class="fa-solid fa-trash"></i> Clear cart</button></aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Gallery</span><h2>East African flavour</h2></div><p>A responsive masonry-style gallery with lightbox previews, lazy loading and descriptive alt text.</p></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="panel glass reveal">
+        <span class="eyebrow">Visit us</span><h2>Contact</h2>
+        <div class="contact-list">
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i><div><strong>Restaurant Address</strong><p>Kampala Take Away, Eponaweg, 82008 Unterhaching, Germany</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-clock"></i><div><strong>Opening Hours</strong><p>Mon-Thu 11:00-22:00<br>Fri-Sat 11:00-23:00<br>Sun 12:00-21:00</p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-phone"></i><div><strong>Phone</strong><p>+49 1573 0802729</p></div></div>
+          <div class="contact-item"><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><p><a href="https://wa.me/4915730802729">Message us instantly</a></p></div></div>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i><div><strong>Email</strong><p><a href="mailto:kampalatakeaway@yahoo.com">kampalatakeaway@yahoo.com</a></p></div></div>
+        </div>
+      </div>
+      <div class="panel glass reveal">
+        <h3>Send a message</h3>
+        <form class="order-form" id="contactForm"><label>Name<input required name="name"></label><label>Email<input required type="email" name="email"></label><label>Message<textarea required name="message"></textarea></label><button class="btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button></form>
+        <div class="map" style="margin-top:18px"><iframe title="Map to Kampala Take Away in Unterhaching" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Unterhaching%20Germany&output=embed"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><div class="brand"><span class="brand-mark"><i class="fa-solid fa-utensils"></i></span><span>Kampala Take Away</span></div><p>Authentic Ugandan and East African cuisine in Germany.</p><p>&copy; 2026 Kampala Take Away. All rights reserved.</p></div>
+      <div><h3>Quick Links</h3><div class="footer-links"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#order">Order Online</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div></div>
+      <div><h3>Social</h3><div class="footer-links"><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a><a href="https://wa.me/4915730802729"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div></div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview"><img alt=""><button class="icon-btn" style="position:absolute;top:18px;right:18px;background:rgba(255,255,255,.14)" aria-label="Close preview"><i class="fa-solid fa-xmark"></i></button></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const exactImage = (query, w = 900, h = 700) => `https://source.unsplash.com/${w}x${h}/?${encodeURIComponent(query)}`;
+    const menu = [
+      {cat:'East African Food', name:'Ugandan Rolex', price:8.99, desc:'Chapati rolled with egg, vegetables and house spice.', image:exactImage('ugandan rolex chapati egg wrap street food')},
+      {cat:'East African Food', name:'Luwombo', price:15.99, desc:'Slow-cooked stew inspired by traditional banana-leaf cooking.', image:exactImage('ugandan luwombo stew banana leaf')},
+      {cat:'East African Food', name:'Matoke', price:9.99, desc:'Steamed green banana served with rich savoury sauce.', image:exactImage('matoke ugandan green banana food')},
+      {cat:'East African Food', name:'Pilau Rice', price:10.99, desc:'Spiced rice cooked with warm cloves, cumin and cardamom.', image:exactImage('east african pilau rice')},
+      {cat:'East African Food', name:'Goat Stew', price:15.99, desc:'Tender goat in a deep tomato and spice gravy.', image:exactImage('goat stew african food')},
+      {cat:'East African Food', name:'Samosas', price:4.99, desc:'Crisp pastry parcels with seasoned filling.', image:exactImage('samosas fried pastry')},
+      {cat:'Soft Drinks', name:'Sparkling Water 0.3L', price:3.00, desc:'Cold sparkling mineral water.', image:exactImage('sparkling water glass bottle')},
+      {cat:'Soft Drinks', name:'Still Water 0.3L', price:3.00, desc:'Premium still water served chilled.', image:exactImage('still mineral water glass bottle')},
+      {cat:'Soft Drinks', name:'Fanta', price:3.50, desc:'Orange soda served cold.', image:exactImage('fanta orange soda can')},
+      {cat:'Soft Drinks', name:'Cola / Cola Light', price:3.50, desc:'Classic cola or light cola over ice.', image:exactImage('cola drink glass ice')},
+      {cat:'Soft Drinks', name:'Mountain Dew', price:4.00, desc:'Citrus soda with a bright finish.', image:exactImage('mountain dew citrus soda can')},
+      {cat:'Soft Drinks', name:'Spezi', price:3.50, desc:'German cola-orange soft drink.', image:exactImage('spezi cola orange soda')},
+      {cat:'Soft Drinks', name:'Orange Juice', price:4.00, desc:'Bright orange juice served chilled.', image:exactImage('fresh orange juice glass')},
+      {cat:'Soft Drinks', name:'Pineapple Juice', price:4.00, desc:'Tropical pineapple juice.', image:exactImage('pineapple juice glass tropical')},
+      {cat:'Soft Drinks', name:'Mango Juice', price:4.00, desc:'Smooth mango juice with tropical sweetness.', image:exactImage('mango juice glass')},
+      {cat:'Soft Drinks', name:'Multivitamin Juice', price:4.00, desc:'Fruit blend packed with colour and freshness.', image:exactImage('multivitamin fruit juice glass')},
+      {cat:'Soft Drinks', name:'Drivers Drink Cocktail', price:6.50, desc:'Alcohol-free house cocktail with fruit and citrus.', image:exactImage('non alcoholic fruit cocktail mocktail')},
+      {cat:'Soft Drinks', name:'Alcohol-Free Beer', price:4.00, desc:'Crisp alcohol-free beer.', image:exactImage('alcohol free beer bottle glass')},
+      {cat:'Soft Drinks', name:'Red Bull', price:4.00, desc:'Classic energy drink.', image:exactImage('red bull energy drink can')},
+      {cat:'Soft Drinks', name:'Red Bull Light', price:4.00, desc:'Light energy drink served cold.', image:exactImage('red bull light energy drink can')},
+      {cat:'Alcoholic Drinks', name:'Beer 0.33L', price:3.00, desc:'Cold bottled beer.', image:exactImage('beer bottle 0.33 glass')},
+      {cat:'Alcoholic Drinks', name:'Radler 0.5L', price:3.00, desc:'Refreshing beer and lemonade mix.', image:exactImage('radler beer lemonade glass')},
+      {cat:'Alcoholic Drinks', name:'White Wine', price:6.50, desc:'Elegant white wine by the glass.', image:exactImage('white wine glass restaurant')},
+      {cat:'Alcoholic Drinks', name:'Wine Spritzer', price:6.00, desc:'White wine spritzer with a sparkling lift.', image:exactImage('white wine spritzer glass')},
+      {cat:'Alcoholic Drinks', name:'Aperol Spritz', price:7.50, desc:'Aperol, sparkling wine and orange.', image:exactImage('aperol spritz cocktail orange')},
+      {cat:'Alcoholic Drinks', name:'Hugo', price:6.50, desc:'Elderflower, mint, lime and sparkling wine.', image:exactImage('hugo cocktail elderflower mint lime')},
+      {cat:'Alcoholic Drinks', name:'Southern Comfort Straight', price:3.50, desc:'Southern Comfort served neat.', image:exactImage('southern comfort whiskey glass neat')},
+      {cat:'Alcoholic Drinks', name:'Southern Comfort with Cola or Sprite', price:7.00, desc:'Southern Comfort mixed long drink.', image:exactImage('whiskey cola long drink glass')},
+      {cat:'Alcoholic Drinks', name:"Jack Daniel's Straight", price:3.50, desc:"Jack Daniel's served neat.", image:exactImage('jack daniels whiskey glass neat')},
+      {cat:'Alcoholic Drinks', name:"Jack Daniel's with Cola or Sprite", price:7.00, desc:"Jack Daniel's mixed long drink.", image:exactImage('jack daniels cola long drink')},
+      {cat:'Cocktails', name:'Mai Tai', price:9.00, desc:'Rum, citrus and tropical almond notes.', image:exactImage('mai tai cocktail')},
+      {cat:'Cocktails', name:'Bahama Mama', price:9.00, desc:'Rum, coconut, pineapple and sunset colour.', image:exactImage('bahama mama cocktail')},
+      {cat:'Cocktails', name:'Caipirinha', price:8.50, desc:'Cachaca, lime and crushed ice.', image:exactImage('caipirinha cocktail lime')},
+      {cat:'Cocktails', name:'Mojito', price:8.50, desc:'Mint, lime, rum and soda.', image:exactImage('mojito cocktail mint lime')},
+      {cat:'Cocktails', name:'Margarita', price:8.50, desc:'Tequila, citrus and salted rim.', image:exactImage('margarita cocktail salt rim')},
+      {cat:'Cocktails', name:'Blue Lagoon', price:8.50, desc:'Vodka, blue curacao and lemon.', image:exactImage('blue lagoon cocktail')},
+      {cat:'Cocktails', name:'Sex on the Beach', price:8.50, desc:'Vodka, peach, orange and cranberry.', image:exactImage('sex on the beach cocktail')},
+      {cat:'Cocktails', name:'Tequila Sunrise', price:8.50, desc:'Tequila, orange and grenadine.', image:exactImage('tequila sunrise cocktail')},
+      {cat:'Cocktails', name:'Pina Colada', price:8.50, desc:'Rum, pineapple and coconut cream.', image:exactImage('pina colada cocktail pineapple')},
+      {cat:'Cocktails', name:'Negroni', price:8.50, desc:'Gin, vermouth and bitter orange.', image:exactImage('negroni cocktail orange')}
+    ];
+
+    const gallery = [
+      ['Ugandan Rolex','ugandan rolex chapati egg wrap','wide'], ['Luwombo','ugandan luwombo stew banana leaf',''], ['Matoke','matoke ugandan green banana food','tall'], ['Posho','ugali posho african food',''], ['Rice and Beans','rice and beans african food',''], ['Pilau Rice','east african pilau rice','wide'], ['Beef Stew','african beef stew',''], ['Goat Stew','goat stew african food',''], ['Chicken Stew','african chicken stew',''], ['Grilled Tilapia','grilled tilapia fish','tall'], ['Chapati','east african chapati flatbread',''], ['Samosas','samosas fried pastry',''], ['Mandazi','mandazi african doughnut',''], ['Cassava','cassava fried african food',''], ['Sweet Potatoes','roasted sweet potatoes',''], ['Rolex Wraps','ugandan rolex wrap chapati','wide'], ['African Tea','african tea chai milk tea',''], ['Fresh Tropical Juices','fresh tropical fruit juices','']
+    ];
+
+    const state = { category: 'Soft Drinks', cart: [] };
+    const format = value => `€${value.toFixed(2)}`;
+    const toast = message => { const el = document.getElementById('toast'); el.textContent = message; el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2600); };
+
+    function renderTabs() {
+      const tabs = ['East African Food', 'Soft Drinks', 'Alcoholic Drinks', 'Cocktails'];
+      document.getElementById('tabs').innerHTML = tabs.map(tab => `<button class="tab ${tab === state.category ? 'active' : ''}" data-tab="${tab}">${tab}</button>`).join('');
+      document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { state.category = btn.dataset.tab; renderAll(); }));
+    }
+
+    function renderMenu() {
+      const items = menu.filter(item => item.cat === state.category);
+      document.getElementById('menuGrid').innerHTML = items.map(item => {
+        const index = menu.indexOf(item);
+        return `<article class="card reveal visible"><div class="card-media"><img src="${item.image}" alt="${item.name} served at Kampala Take Away" loading="lazy"></div><div class="card-body"><div class="meta"><h3>${item.name}</h3><span class="price">${format(item.price)}</span></div><p>${item.desc}</p><button class="btn small" data-add="${index}"><i class="fa-solid fa-plus"></i> Add</button></div></article>`;
+      }).join('');
+      document.querySelectorAll('[data-add]').forEach(btn => btn.addEventListener('click', () => addToCart(menu[Number(btn.dataset.add)])));
+    }
+
+    function renderDrinkList() {
+      const featured = menu.filter(item => ['Soft Drinks','Alcoholic Drinks','Cocktails'].includes(item.cat)).slice(0, 5);
+      document.getElementById('drinkList').innerHTML = featured.map(item => `<div class="drink-strip"><img src="${item.image}" alt="${item.name}" loading="lazy"><div><strong>${item.name}</strong><br><small>${item.cat}</small></div><button class="btn small" data-drink="${item.name}">${format(item.price)}</button></div>`).join('');
+      document.querySelectorAll('[data-drink]').forEach(btn => btn.addEventListener('click', () => addToCart(menu.find(item => item.name === btn.dataset.drink))));
+    }
+
+    function addToCart(item) {
+      const existing = state.cart.find(row => row.name === item.name);
+      existing ? existing.qty++ : state.cart.push({...item, qty: 1});
+      renderCart();
+      toast(`${item.name} added to cart`);
+    }
+
+    function renderCart() {
+      const count = state.cart.reduce((sum, row) => sum + row.qty, 0);
+      document.getElementById('cartCount').textContent = count;
+      const cartItems = document.getElementById('cartItems');
+      if (!state.cart.length) {
+        cartItems.className = 'empty';
+        cartItems.textContent = 'Your cart is empty.';
+        document.getElementById('cartTotal').textContent = format(0);
+        return;
+      }
+      cartItems.className = '';
+      cartItems.innerHTML = state.cart.map((row, index) => `<div class="cart-line"><div><strong>${row.name}</strong><div class="qty"><button data-dec="${index}">-</button><span>${row.qty}</span><button data-inc="${index}">+</button><button class="remove" data-remove="${index}" aria-label="Remove ${row.name}"><i class="fa-solid fa-xmark"></i></button></div></div><strong>${format(row.price * row.qty)}</strong></div>`).join('');
+      document.getElementById('cartTotal').textContent = format(state.cart.reduce((sum, row) => sum + row.price * row.qty, 0));
+      document.querySelectorAll('[data-inc]').forEach(b => b.onclick = () => { state.cart[Number(b.dataset.inc)].qty++; renderCart(); });
+      document.querySelectorAll('[data-dec]').forEach(b => b.onclick = () => { const row = state.cart[Number(b.dataset.dec)]; row.qty--; if (row.qty < 1) state.cart.splice(Number(b.dataset.dec), 1); renderCart(); });
+      document.querySelectorAll('[data-remove]').forEach(b => b.onclick = () => { state.cart.splice(Number(b.dataset.remove), 1); renderCart(); });
+    }
+
+    function renderGallery() {
+      document.getElementById('galleryGrid').innerHTML = gallery.map(([name, id, cls]) => `<div class="gallery-item card ${cls}" data-full="${unsplash(id, 1400, 1100)}"><img src="${unsplash(id, 800, 700)}" alt="${name} at Kampala Take Away" loading="lazy"><span>${name}</span></div>`).join('');
+      document.querySelectorAll('.gallery-item').forEach(item => item.addEventListener('click', () => {
+        const box = document.getElementById('lightbox');
+        box.querySelector('img').src = item.dataset.full;
+        box.querySelector('img').alt = item.querySelector('img').alt;
+        box.classList.add('active');
+      }));
+    }
+
+    function renderAll() { renderTabs(); renderMenu(); renderDrinkList(); renderCart(); }
+    document.querySelector('.mobile-toggle').addEventListener('click', () => document.getElementById('navLinks').classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+    document.getElementById('openCart').addEventListener('click', () => document.getElementById('order').scrollIntoView({behavior:'smooth'}));
+    document.getElementById('clearCart').addEventListener('click', () => { state.cart = []; renderCart(); toast('Cart cleared'); });
+    document.getElementById('orderForm').addEventListener('submit', event => {
+      event.preventDefault();
+      if (!state.cart.length) { toast('Add at least one item first'); return; }
+      const data = new FormData(event.currentTarget);
+      const lines = state.cart.map(row => `${row.qty} x ${row.name} - ${format(row.qty * row.price)}`).join('\n');
+      const message = `KAMPALA TAKE AWAY ORDER\n\n${lines}\n\nTotal: ${document.getElementById('cartTotal').textContent}\nService: ${data.get('service')}\nTime: ${data.get('time')}\nName: ${data.get('name')}\nPhone: ${data.get('phone')}\nEmail: ${data.get('email')}\nAddress: ${data.get('address') || '-'}\nNotes: ${data.get('notes') || '-'}`;
+      window.open(`https://wa.me/4915730802729?text=${encodeURIComponent(message)}`, '_blank');
+    });
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      window.location.href = `mailto:kampalatakeaway@yahoo.com?subject=${encodeURIComponent('Website message from ' + data.get('name'))}&body=${encodeURIComponent(data.get('message') + '\n\nReply to: ' + data.get('email'))}`;
+    });
+    document.getElementById('lightbox').addEventListener('click', event => { if (event.target.id === 'lightbox' || event.target.closest('button')) event.currentTarget.classList.remove('active'); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') document.getElementById('lightbox').classList.remove('active'); });
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), {threshold: .12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    renderAll();
+    renderGallery();
+  </script>
+</body>
+</html>
